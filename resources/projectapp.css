@@ -1,0 +1,85 @@
+.signup {
+	position: relative;
+	top: 60px;
+}
+
+.signup label {
+	font-size: 14px;
+}
+
+.signin {
+	position: relative;
+	top: 60px;
+}
+
+.tasks{
+	height: 200%;
+	width: 100%;
+
+}
+
+.jumbotron {
+
+	padding: 10%;
+
+}
+
+.taskModal{
+	width: 100%;
+}
+
+.newTask {
+	width: 100%;
+}
+
+.taskOrder {
+	width: 20%;
+}
+
+.edit {
+	display: inline-block;
+}
+
+.main-nav {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.task-area{
+	position: relative;
+	left: 15px;
+	text-align: left;
+	/*width: 300px;
+	height: 100px;*/
+}
+
+#setupForm {
+	padding: 5%;
+}
+
+form input {
+	height: 28px;
+}
+
+#createTaskArea {
+	/*width: 100px;*/
+	padding-left: 20%;
+	padding-top: 10%;
+	padding-right: 20%;
+	padding-bottom: 40% ;
+}
+
+.datepicker{
+
+	z-index:10010 !important;
+
+}
+
+.modal {
+	z-index: 10000;
+}
+
+/*.leftnav {
+	background-color: black;
+	color: white;
+}*/
