@@ -65,7 +65,7 @@ passport.serializeUser(function(user, done) {
 
        //Look for User, if none exists create and serialize, if one exists serialize it
        // findOrCreate(user, done);
-       done(null, user._id);
+       done(null, user.uid);
 
 
 });
@@ -92,6 +92,7 @@ passport.deserializeUser(function(id, done) {
 
 //MAIN RENDER
 // app.get("/main", auth.ensureAuthenticated, auth.roleRender)
+app.get("/main", function(req, res){res.render('index.html'); console.log("rendered")})
 
 
 //INITIAL USER
