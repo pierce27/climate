@@ -6,9 +6,9 @@ Climate CRM is a simple CRM for managing contacts, opportunities, and accounts. 
 
 
 Code
-=========
+-----------
 
-The CRM is using th technologies below:
+Climate is using th technologies below:
 
 *  node.js
 *  postgresql
