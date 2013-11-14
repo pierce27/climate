@@ -10,9 +10,9 @@ Code
 
 The CRM is using th technologies below:
 
-node.js
-postgresql
-Angular JS
-Bootstrap
+*node.js
+*postgresql
+*Angular JS
+*Bootstrap
 
 
