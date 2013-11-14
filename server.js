@@ -65,7 +65,7 @@ passport.serializeUser(function(user, done) {
 
        //Look for User, if none exists create and serialize, if one exists serialize it
        // findOrCreate(user, done);
-       done(null, user.uid);
+       done(null, user.username);
 
 
 });
