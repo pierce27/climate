@@ -6,7 +6,7 @@
 		<script src="/js/angular.js"></script>
         <link href="/bootstrapNew/css/bootstrap.css" rel="stylesheet">
         <script src="/bootstrapNew/js/bootstrap.js" type="text/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="/projectapp.css">
+        <link rel="stylesheet" type="text/css" href="/climate.css">
         
         <link rel="stylesheet" type="text/css" href="bootstrap/social-buttons.css">
         <link rel="stylesheet" type="text/css" href="font-awesome-4.0.1/css/font-awesome.css">
@@ -19,7 +19,90 @@
 
 </head>
   <body>
-    <h3>HELLO</h3>
+  	<nav class="navbar navbar-default" role="navigation">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand hidden-lg hidden-md" href="#">Tasks</a>
+	  </div>
+
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <form class="navbar-form navbar" role="search">
+	    	<button type="button" class="btn btn-primary navbar-btn" ng-click="showNew()">New</button>
+	    	<select class="form-control taskOrder"ng-model="orderProp">
+				<option value="name">Alphabetical</option>
+				<option value="created">Created Date</option>
+				<option value="dueDate">Due Date</option>
+			</select>
+	      <div class="form-group">
+	        <input type="text" class="form-control" ng-model="query" placeholder="Search">
+	      </div>
+	      <button type="submit" class="btn btn-default" >Submit</button>
+	    </form>
+
+	  </div><!-- /.navbar-collapse -->
+	</nav>
+
+
+	<div class="containter contacts">
+		<div class="row">
+			<div class="col-md-12 col-md-offset-1">
+				<div class="row">
+				<!-- Start COLD Contacts -->
+					<div class="col-md-4">
+						<h3>COLD</h3>
+
+
+  	<nav class="navbar navbar-default" role="navigation">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand hidden-lg hidden-md" href="#">Tasks</a>
+	  </div>
+
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <form class="navbar-form navbar" role="search">
+	    	<select class="form-control taskOrder"ng-model="orderProp">
+				<option value="name">Alphabetical</option>
+				<option value="created">Created Date</option>
+				<option value="dueDate">Due Date</option>
+			</select>
+	      <div class="form-group pull-right">
+	        <input type="text" class="form-control" ng-model="query" placeholder="Search">
+	      </div>
+	    </form>
+
+	  </div><!-- /.navbar-collapse -->
+	</nav>						
+
+
+					</div>
+
+					<div class="col-md-4">
+						<h3>WARM</h3>
+					</div>
+
+					<div class="col-md-4">
+						<h3>HOT</h3>
+					</div>	
+				</div>			
+
+			</div>
+		</div>
+	</div>
+
   </body>
     <!-- Eventually add to outside script file -->
   	<!-- <script type="text/javascript">

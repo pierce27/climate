@@ -26,7 +26,7 @@ exports.findLocal= function(User, done){
 
       if(result.rows.length < 1){
         console.log('no user')
-        return 0
+        return false
 
       } else{
         if(bcrypt.compareSync(User.password, result.rows[0].password)){
@@ -99,7 +99,7 @@ exports.findUser= function(uid, done){
 
       if(result.rows.length < 1){
         console.log('no user')
-        return 0
+        return done(null, false)
 
       } else{
 
