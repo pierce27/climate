@@ -12,7 +12,7 @@ var engines = require('consolidate');
 app.configure(function() {
   app.use(express.cookieParser('andrewsecret'));
   app.use(express.bodyParser());
-  app.use(express.session({ cookie: {maxAge: 10000}, store: new MongoStore({url: 'mongodb://localhost/myprojectdb'})  }));
+  // app.use(express.session({ cookie: {maxAge: 10000}, store: new MongoStore({url: 'mongodb://localhost/myprojectdb'})  }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
