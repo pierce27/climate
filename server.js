@@ -134,7 +134,7 @@ app.post("/newContact", p.createContact);
 
 var port = 3000;
 
-app.listen(port);
+app.listen(process.env.PORT || port);
 console.log('Listening on port ' + port);
 
 
