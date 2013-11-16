@@ -94,6 +94,7 @@ passport.deserializeUser(function(id, done) {
 // app.get("/main", auth.ensureAuthenticated, auth.roleRender)
 app.get("/main", function(req, res){res.render('index.html'); console.log("rendered")})
 
+app.get("/", function(req, res, next){conlose.log('here in /'); res.redner('index.html'); console.log('rendererd index')})
 
 //INITIAL USER
 app.get("/login", function(req, res){res.render('login.html'); console.log("rendered")})
@@ -135,7 +136,7 @@ app.post("/newContact", p.createContact);
 var port = 3000;
 
 app.listen(process.env.PORT || port);
-console.log('Listening on port ' + port);
+console.log('Listening on port ' + process.env.PORT);
 
 
 
