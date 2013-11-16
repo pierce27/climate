@@ -7,7 +7,7 @@ var conString = "postgres://postgres:uhbijnm@localhost/mydb";
 
 var name = 'task from node js'
 
-var client = new pg.Client(conString);
+var client = new pg.Client(HEROKU_POSTGRESQL_BLUE_URL);
 client.connect(function(err) {
   if(err) {
     return console.error('could not connect to postgres', err);
