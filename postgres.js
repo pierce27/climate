@@ -116,7 +116,44 @@ exports.findUser= function(uid, done){
 
 
 
+exports.createContact = function(req, res, next){
 
-// client.query("CREATE TABLE IF NOT EXISTS users(username varchar(64), firstname varchar(64), lastname varchar(64), password varchar(100))");
+  console.log('creating')
+  console.log(req.body)
+
+  client.query("INSERT INTO contacts (firstname, lastname, company, email, temp) values($1, $2, $3, $4, $5)", [req.body.firstName, req.body.lastName, req.body.company, req.body.email, req.body.temp], function(err, result){
+
+    console.log(result);
+    res.jsonp(result.rows);
+
+  });
+
+}
+
+
+
+exports.getContacts = function(req, res, next){
+
+  client.query("SELECT * FROM contacts", function(err, result){
+
+    res.jsonp(result.rows);
+
+  })
+}
+
+
+
+
+
+client.query("CREATE TABLE IF NOT EXISTS users(username varchar(64), firstname varchar(64), lastname varchar(64), password varchar(100))");
+
+client.query("CREATE TABLE IF NOT EXISTS contacts(id serial PRIMARY KEY, firstName varchar(64), lastName varchar(64), company varchar(64), email varchar(64), temp varchar(64))");
 
 // client.query("INSERT INTO users (uid, firstname, lastname, password) values($1, $2, $3, $4)", ['aspierce27@gmail.com', 'Ronald', 'McDonald', 'password']);
+
+
+
+
+
+
+

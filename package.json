@@ -1,0 +1,14 @@
+{
+  "name": "ClimateCRM",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple CRM",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Andrew Pierce",
+  "dependencies": {
+    "nodemailer": "0.3.29"
+  }
+}

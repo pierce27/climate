@@ -4,9 +4,12 @@
 		<script src="/datepicker/js/bootstrap-datepicker.js"></script>
 		<link rel="stylesheet" type="text/css" href="/datepicker/css/datepicker.css">
 		<script src="/js/angular.js"></script>
+        
         <link href="/bootstrapNew/css/bootstrap.css" rel="stylesheet">
-        <script src="/bootstrapNew/js/bootstrap.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="/climate.css">
+
+        <script src="/bootstrapNew/js/bootstrap.js" type="text/javascript"></script>
+        
         
         <link rel="stylesheet" type="text/css" href="bootstrap/social-buttons.css">
         <link rel="stylesheet" type="text/css" href="font-awesome-4.0.1/css/font-awesome.css">
@@ -18,8 +21,10 @@
 
 
 </head>
-  <body>
-  	<nav class="navbar navbar-default" role="navigation">
+<body>
+
+
+	<nav class="navbar navbar-default" role="navigation">
 	  <!-- Brand and toggle get grouped for better mobile display -->
 	  <div class="navbar-header">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -28,74 +33,360 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand hidden-lg hidden-md" href="#">Tasks</a>
+	    <a class="navbar-brand" href="#">Climate CRM</a>
 	  </div>
 
 	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	    <form class="navbar-form navbar" role="search">
-	    	<button type="button" class="btn btn-primary navbar-btn" ng-click="showNew()">New</button>
-	    	<select class="form-control taskOrder"ng-model="orderProp">
-				<option value="name">Alphabetical</option>
-				<option value="created">Created Date</option>
-				<option value="dueDate">Due Date</option>
-			</select>
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="ContactCtrl">
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Accounts</a></li>
+	      <li><a href="#">Opportunities	</a></li>
+	      <li class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">Action</a></li>
+	          <li><a href="#">Another action</a></li>
+	          <li><a href="#">Something else here</a></li>
+	          <li class="divider"></li>
+	          <li><a href="#">Separated link</a></li>
+	          <li class="divider"></li>
+	          <li><a href="#">One more separated link</a></li>
+	        </ul>
+	      </li>
+	    </ul>
+	    <form class="navbar-form navbar-left" role="search">
 	      <div class="form-group">
-	        <input type="text" class="form-control" ng-model="query" placeholder="Search">
+	        <input type="text" class="form-control" ng-model="allquery" placeholder="Search">
 	      </div>
-	      <button type="submit" class="btn btn-default" >Submit</button>
+	      <button type="submit" class="btn btn-primary" ng-click="createContact()">New</button>
 	    </form>
 
 	  </div><!-- /.navbar-collapse -->
 	</nav>
 
 
+
+
+	<!-- Create Contact -->
+	<div class="modal fade" id="createContactArea" tabindex="-1" role="dialog" aria-labelledby="createContact" aria-hidden="true">
+
+	<div class="moadl-dialog">
+	<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Task</h3>
+	</div>
+
+	<div class="modal-body taskModal" ng-controller="ContactCtrl">
+		<form ng-submit="saveContact()" class="form">
+
+			<div class="form-group ">
+			    <label class="control-label" for="firstName">First Name</label>
+			    <div class="form-group">
+				    <input type="text" ng-model="firstName" name="firstName" id="firstName" class="form-control newContact"/>
+			    </div>
+		    </div>
+		    
+		    <div class="form-group ">
+			    <label class="control-label" for="lastName">Last Name</label>
+			    <div class="form-group">
+				    <input type="text" ng-model="lastName" name="lastName" id="lastName" placeholder="Last Name" class="newContact form-control" >
+			    </div>
+		    </div>
+
+		    <div class="form-group ">
+			    <label class="control-label" for="company">Company</label>
+			    <div class="form-group">
+					<input type="text" ng-model="company" name="company" id="company" placeholder="Company" class="newContact form-control" >
+			    </div>
+		    </div>
+	    
+		    <div class="form-group ">
+			    <label class="control-label" for="email">Email</label>
+			    <div class="form-group">
+					<input type="text" ng-model="email" name="email" id="email" placeholder="Email" class="newContact form-control" >
+			    </div>
+		    </div>
+
+		    <div class="form-group ">
+			    <label class="control-label" for="temp">Temperature</label>
+			    <div class="form-group">
+						<select class="form-control newContact" ng-model="temp" name="temp" id="temp">
+							<option value="cold">Cold</option>
+							<option value="warm">Warm</option>
+							<option value="hot">Hot</option>
+						</select>
+			    </div>
+		    </div>
+
+
+		    
+		    <div class="form-group">
+			    <div class="form-group">
+				    <!-- <input type="submit"  data-dismiss="modal" aria-hidden="true" id="createTask" class="btn" value="Create Task"/> -->
+				    <button type="submit" id="saveTask" class="btn btn-default btn-primary">Save</button>
+			    </div>
+		    </div>
+	    </form>
+	</div>
+
+
+<!-- 					<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button type="submit" id="createTask" class="btn btn-default btn-primary">Save changes</button>
+	</div>	 -->				
+</div>
+</div>
+</div>
+
+
+
+
 	<div class="containter contacts">
 		<div class="row">
-			<div class="col-md-12 col-md-offset-1">
+			<div class="col-md-9 col-md-offset-1">
 				<div class="row">
+
+
 				<!-- Start COLD Contacts -->
+					<div class="col-md-4" ng-controller="ContactCtrl">
+						<!-- <h3>COLD</h3> -->
+						<select class="form-control taskOrder" ng-model="orderProp">
+							<option value="firstname">First Name</option>
+							<option value="lastname">Last Name</option>
+							<option value="company">Company</option>
+						</select>
+
+					  	<nav class="navbar navbar-default contactNav" role="navigation">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+						    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						      <span class="sr-only">Toggle navigation</span>
+						      <span class="icon-bar"></span>
+						      <span class="icon-bar"></span>
+						      <span class="icon-bar"></span>
+						    </button>
+						    <a class="navbar-brand hidden-lg hidden-md" href="#">Tasks</a>
+						  </div>
+
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						    <form class="navbar-form navbar" role="search">
+						      <div class="form-group pull-right">
+						        <input type="text" class="form-control" ng-model="coldquery" placeholder="Search">
+						      </div>
+						    </form>
+
+						  </div><!-- /.navbar-collapse -->
+						</nav>	
+						<!--END NAV FOR CONTACT  -->
+
+
+				  <div  class="panel-group" id="accordion2">
+		            <div ng-repeat="contact in contacts | orderBy:orderProp | filter:'cold' | filter:coldquery" class="panel panel-default">
+
+		            	
+		              <div class="panel-heading accordion-toggle cold" data-toggle="collapse" data-parent="#accordion2" href="#{{contact.id}}">
+<!-- 		                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{contact._id}}" >
+		                  {{contact.name}}
+		                </a> -->
+
+						<strong>
+		                  <em class="name{{contact.id}}">{{contact.firstname}}</em>
+		                  <em class="name{{contact.id}}">{{contact.lastname}}</em>
+		                </strong>
+
+		                <!-- <strong class="pull-right">Due: </strong><br> -->
+						<span class="description{{contact.id}} pull-right">
+		                	{{contact.company}}
+		                </span>
+
+		                <!-- <span class="pull-right description{{contact.id}}">{{contact.dueDate | date:'M/d/yy'}}</span> -->
+
+
+
+		              </div>
+		            <div id="{{contact.id}}" class="panel-collapse collapse">
+		            <!-- Start Task Container -->
+		              <div class="panel-body">
+		              	<div class="row task-area">
+		              		<!-- Start task details -->
+
+		              		<div class="col-md-3 ">
+
+				                	<h4>Email:</h4> 
+				                	<span class="details{{contact._id}}">{{contact.email}}</span>
+				                	
+
+
+			                </div>
+			                <!-- end task details -->
+			                <!-- Start task discussion -->
+			                <div class="col-md-5">
+
+
+			                	<div style="width: 70%;"> 
+
+			                	</div>
+
+		                
+			                </div>
+
+			            </div>
+			                <!-- End task detials -->
+			                <br>
+		              </div>
+		              <!-- End Task Container -->
+		            </div>
+		          </div>
+
+		        </div>
+
+
+
+					</div>
+					<!-- END COLD CONTACTS -->
+
+
+
 					<div class="col-md-4">
-						<h3>COLD</h3>
+						<!-- <h3>WARM</h3> -->
+						<select class="form-control taskOrder"ng-model="orderProp">
+							<option value="lasttname">Alphabetical</option>
+							<option value="created">Created Date</option>
+							<option value="dueDate">Due Date</option>
+						</select>
+
+  						<nav class="navbar navbar-default contactNav" role="navigation">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+						    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						      <span class="sr-only">Toggle navigation</span>
+						      <span class="icon-bar"></span>
+						      <span class="icon-bar"></span>
+						      <span class="icon-bar"></span>
+						    </button>
+						    <a class="navbar-brand hidden-lg hidden-md" href="#">Tasks</a>
+						  </div>
+
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						    <form class="navbar-form navbar" role="search">
+
+						      <div class="form-group pull-right">
+						        <input type="text" class="form-control" ng-model="warmquery" placeholder="Search">
+						      </div>
+						    </form>
+
+						  </div><!-- /.navbar-collapse -->
+						</nav>	
 
 
-  	<nav class="navbar navbar-default" role="navigation">
-	  <!-- Brand and toggle get grouped for better mobile display -->
-	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	      <span class="sr-only">Toggle navigation</span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
-	    <a class="navbar-brand hidden-lg hidden-md" href="#">Tasks</a>
-	  </div>
 
-	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	    <form class="navbar-form navbar" role="search">
-	    	<select class="form-control taskOrder"ng-model="orderProp">
-				<option value="name">Alphabetical</option>
-				<option value="created">Created Date</option>
-				<option value="dueDate">Due Date</option>
-			</select>
-	      <div class="form-group pull-right">
-	        <input type="text" class="form-control" ng-model="query" placeholder="Search">
-	      </div>
-	    </form>
 
-	  </div><!-- /.navbar-collapse -->
-	</nav>						
+
+				  <div  class="panel-group" id="accordion2" ng-controller="ContactCtrl">
+		            <div ng-repeat="contact in contacts | orderBy:orderProp | filter:'warm' | filter: warmquery | filter: allquery" class="panel panel-default">
+
+		            	
+		              <div class="panel-heading accordion-toggle warm" data-toggle="collapse" data-parent="#accordion2" href="#{{contact.id}}">
+<!-- 		                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{contact._id}}" >
+		                  {{contact.name}}
+		                </a> -->
+
+						<strong>
+		                  <em class="name{{contact.id}}">{{contact.firstname}}</em>
+		                  <em class="name{{contact.id}}">{{contact.lastname}}</em>
+		                </strong>
+
+		                <!-- <strong class="pull-right">Due: </strong><br> -->
+						<span class="description{{contact.id}} pull-right">
+		                	{{contact.company}}
+		                </span>
+
+		                <!-- <span class="pull-right description{{contact.id}}">{{contact.dueDate | date:'M/d/yy'}}</span> -->
+
+
+
+		              </div>
+		            <div id="{{contact.id}}" class="panel-collapse collapse">
+		            <!-- Start Task Container -->
+		              <div class="panel-body">
+		              	<div class="row task-area">
+		              		<!-- Start task details -->
+
+		              		<div class="col-md-3 ">
+
+				                	<h4>Email:</h4> 
+				                	<span class="details{{contact._id}}">{{contact.email}}</span>
+				                	
+
+
+			                </div>
+			                <!-- end task details -->
+			                <!-- Start task discussion -->
+			                <div class="col-md-5">
+
+
+			                	<div style="width: 70%;"> 
+
+			                	</div>
+
+		                
+			                </div>
+
+			            </div>
+			                <!-- End task detials -->
+			                <br>
+		              </div>
+		              <!-- End Task Container -->
+		            </div>
+		          </div>
+
+		        </div>
+
+
+
+
 
 
 					</div>
 
-					<div class="col-md-4">
-						<h3>WARM</h3>
-					</div>
+
 
 					<div class="col-md-4">
-						<h3>HOT</h3>
+						<!-- <h3>HOT</h3> -->
+						<select class="form-control taskOrder"ng-model="orderProp">
+							<option value="name">Alphabetical</option>
+							<option value="created">Created Date</option>
+							<option value="dueDate">Due Date</option>
+						</select>
+
+  						<nav class="navbar navbar-default contactNav" role="navigation">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+						    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						      <span class="sr-only">Toggle navigation</span>
+						      <span class="icon-bar"></span>
+						      <span class="icon-bar"></span>
+						      <span class="icon-bar"></span>
+						    </button>
+						    <a class="navbar-brand hidden-lg hidden-md" href="#">Tasks</a>
+						  </div>
+
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						    <form class="navbar-form navbar" role="search">
+						      <div class="form-group pull-right">
+						        <input type="text" class="form-control" ng-model="query" placeholder="Search">
+						      </div>
+						    </form>
+
+						  </div><!-- /.navbar-collapse -->
+						</nav>	
+
+
+
 					</div>	
 				</div>			
 

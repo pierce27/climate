@@ -6,32 +6,32 @@ $(function() {
 
 
 
-// -------------------------------------------TASK CONTROLLER -------------------------------------------//
+// -------------------------------------------CONTACT CONTROLLER -------------------------------------------//
      
-projectApp.controller('TaskListCtrl', function TaskListCtrl($scope, $http) {
+projectApp.controller('ContactCtrl', function TaskListCtrl($scope, $http) {
   
    
 
 
 
   //GET TASKS FOR MAIN
-  $http.get('/findTasks').success(function(data){
+  $http.get('/getContacts').success(function(data){
 
     console.log(data)
-    $scope.tasks = data;
+    $scope.contacts = data;
     //$scope.$apply();
 
   });
 
-  //GET MY USER INFO
-  $http.get('/getMe').success(function(data){
+  // //GET MY USER INFO
+  // $http.get('/getMe').success(function(data){
 
-    console.log(data)
-    $scope.me = data;
-    //$scope.$apply();
-    console.log($scope.me)
+  //   console.log(data)
+  //   $scope.me = data;
+  //   //$scope.$apply();
+  //   console.log($scope.me)
 
-  });
+  // });
   
   //FILTER
   $scope.orderProp = 'name';
@@ -54,44 +54,42 @@ projectApp.controller('TaskListCtrl', function TaskListCtrl($scope, $http) {
 
 
   //SAVE TASK
-  $scope.saveTask = function() {
+  $scope.saveContact = function() {
       console.log('saving')
-      idx = $scope.idx
-      i = $scope.tasks.length + 1
-      var task_to_save = {name: $scope.name, description: $scope.description, details: $scope.details, id: $scope.id, dueDate: $scope.dueDate};
-      console.log('date')
-      console.log($scope.dueDate)
+      var contact_to_save = {firstName: $scope.firstName, lastName: $scope.lastName, email: $scope.email,  company: $scope.company, temp: $scope.temp};
       // this.tasks.push(newTask);
-      if ($scope.id == 0){
-        $http.post('/newTask', task_to_save).success(function(data){
+      // if ($scope.id == 0){
+        $http.post('/newContact', contact_to_save).success(function(data){
           console.log('Saved');
-          $scope.tasks.push(data);
-          $('#createTaskArea').modal('hide')
+          console.log(data);
+          $scope.contacts.push(data);
+          $('#createContactArea').modal('hide')
+        })
 
           
-        });
-      } else {
-      $http.post('/updateTask', task_to_save).success(function(data){
+        // });
+      // } else {
+      // $http.post('/updateTask', task_to_save).success(function(data){
       
-          console.log('Saved');
-          $scope.tasks[idx].details = $scope.details
-          $scope.details = ''
-          $scope.tasks[idx].dueDate = $scope.dueDate 
-          $scope.dueDate = ''
-          $scope.tasks[idx].name = $scope.name
-          $scope.name = ''
-          $scope.tasks[idx].description = $scope.description
-          $scope.description = ''
-          $scope.idx = 0
-          $scope.id = 0
-          $scope.apply
-          $('#createTaskArea').modal('hide')
+      //     console.log('Saved');
+      //     $scope.tasks[idx].details = $scope.details
+      //     $scope.details = ''
+      //     $scope.tasks[idx].dueDate = $scope.dueDate 
+      //     $scope.dueDate = ''
+      //     $scope.tasks[idx].name = $scope.name
+      //     $scope.name = ''
+      //     $scope.tasks[idx].description = $scope.description
+      //     $scope.description = ''
+      //     $scope.idx = 0
+      //     $scope.id = 0
+      //     $scope.apply
+      //     $('#createTaskArea').modal('hide')
 
           
-        });
-      }
+      //   });
+      // }
       
-  };
+  }
 
 
 
@@ -113,17 +111,18 @@ projectApp.controller('TaskListCtrl', function TaskListCtrl($scope, $http) {
   };
 
   
-  $scope.showEdit = function(idx){
+  $scope.createContact = function(){
 
-    $scope.id = $scope.tasks[idx]._id
-    $scope.idx = idx
-    $scope.details = $scope.tasks[idx].details
-    $scope.dueDate = $scope.tasks[idx].dueDate
-    $scope.name = $scope.tasks[idx].name
-    $scope.description = $scope.tasks[idx].description
+    // $scope.id = $scope.tasks[idx]._id
+    // $scope.idx = idx
+    // $scope.details = $scope.tasks[idx].details
+    // $scope.dueDate = $scope.tasks[idx].dueDate
+    // $scope.name = $scope.tasks[idx].name
+    // $scope.description = $scope.tasks[idx].description
     // $('#createTask').addClass('hide')
     // $('#editTask').removeClass('hide')
-    $('#createTaskArea').modal('show')
+    console.log('here');
+    $('#createContactArea').modal('show')
 
   }
 
@@ -131,7 +130,7 @@ projectApp.controller('TaskListCtrl', function TaskListCtrl($scope, $http) {
 
     $scope.idx = 0
     $scope.id = 0
-    $('#createTaskArea').modal('show')
+    $('#createContactArea').modal('show')
 
 
   }

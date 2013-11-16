@@ -120,11 +120,11 @@ app.post('/signin',
 
 
 //GET DATA FOR MAIN
-
+app.get("/getContacts", p.getContacts);
 
 
 //CRUD DATA FROM MAIN
-
+app.post("/newContact", p.createContact);
 
 
 
