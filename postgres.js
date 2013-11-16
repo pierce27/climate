@@ -7,7 +7,7 @@ var conString = "postgres://postgres:uhbijnm@localhost/mydb";
 
 var name = 'task from node js'
 
-var client = new pg.Client("postgres://ubcgvwqlihjhgn:O0R18RUmBXFF008Ov82kA0A-Qc@ec2-54-204-41-178.compute-1.amazonaws.com:5432/d97qd3ij7nr250)";
+var client = new pg.Client("postgres://ubcgvwqlihjhgn:O0R18RUmBXFF008Ov82kA0A-Qc@ec2-54-204-41-178.compute-1.amazonaws.com:5432/d97qd3ij7nr250");
 client.connect(function(err) {
   if(err) {
     return console.error('could not connect to postgres', err);
