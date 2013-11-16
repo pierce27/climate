@@ -9,6 +9,6 @@
   },
   "author": "Andrew Pierce",
   "dependencies": {
-    "nodemailer": "0.3.29"
+    "ejs" : "~0.7.1"
   }
 }
