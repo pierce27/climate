@@ -105,7 +105,7 @@ exports.findUser= function(uid, done){
 
         // console.log(result.rows[0]);
         var theUser = result.rows[0];
-        'DESERIALIZE'
+        console.log('DESERIALIZE')
         console.log(theUser);
         return done(null, theUser);
     //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)

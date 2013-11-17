@@ -3,6 +3,7 @@ var http = require('http');
 // var auth = require('./auth')
 var MongoStore = require('connect-mongodb');
 var p = require('./postgres')
+var auth = require('./auth')
 var app = express();
 var passport = require('passport')
     , LocalStrategy = require('passport-local').Strategy;
@@ -92,7 +93,7 @@ passport.deserializeUser(function(id, done) {
 
 //MAIN RENDER
 // app.get("/main", auth.ensureAuthenticated, auth.roleRender)
-app.get("/main", function(req, res){res.render('index.html'); console.log("rendered")})
+app.get("/main", auth.ensureAuthenticated, function(req, res){res.render('index.html'); console.log("rendered")})
 
 app.get("/", function(req, res, next){console.log('here in /'); res.render('login.html'); console.log('rendererd index')})
 
