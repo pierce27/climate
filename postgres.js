@@ -32,7 +32,7 @@ exports.findLocal= function(User, done){
         if(bcrypt.compareSync(User.password, result.rows[0].password)){
           console.log('here they are')
           console.log(result.rows[0]);
-          theUser = result.rows[0];
+          var theUser = result.rows[0];
           return done(null, theUser);
         } else {
           console.log('wrong password')
@@ -103,8 +103,10 @@ exports.findUser= function(uid, done){
 
       } else{
 
-        console.log(result.rows[0]);
-        theUser = result.rows[0];
+        // console.log(result.rows[0]);
+        var theUser = result.rows[0];
+        'DESERIALIZE'
+        console.log(theUser);
         return done(null, theUser);
     //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
       // client.end();
