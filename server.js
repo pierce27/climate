@@ -13,7 +13,7 @@ var engines = require('consolidate');
 app.configure(function() {
   app.use(express.cookieParser('andrewsecret'));
   app.use(express.bodyParser());
-  app.use(express.session({ cookie: {maxAge: 10000}, store: new MongoStore({url: ' mongodb://heroku:3d1213460eccbae93d6afa6b68aa9155@paulo.mongohq.com:10004/app19533669'})  }));
+  app.use(express.session({ cookie: {maxAge: 10000}, store: new MongoStore({url: 'mongodb://heroku:f2c33f3c9567961c24222198920dd843@paulo.mongohq.com:10004/app19533669'})  }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
