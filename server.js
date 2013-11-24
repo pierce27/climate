@@ -7,7 +7,7 @@ var app = express();
 var passport = require('passport')
     , LocalStrategy = require('passport-local').Strategy;
 var engines = require('consolidate');
-
+//I AM BRIAN
 
 app.configure(function() {
   app.use(express.cookieParser('andrewsecret'));
