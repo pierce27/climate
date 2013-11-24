@@ -182,65 +182,23 @@
 						<!--END NAV FOR CONTACT  -->
 
 
-				  <div  class="panel-group" id="accordion2">
-		            <div ng-repeat="contact in contacts | orderBy:orderProp | filter:'cold' | filter:coldquery" class="panel panel-default">
-
-		            	
-		              <div class="panel-heading accordion-toggle cold" data-toggle="collapse" data-parent="#accordion2" href="#{{contact.id}}">
-<!-- 		                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{contact._id}}" >
-		                  {{contact.name}}
-		                </a> -->
-
-						<strong>
-		                  <em class="name{{contact.id}}">{{contact.firstname}}</em>
-		                  <em class="name{{contact.id}}">{{contact.lastname}}</em>
-		                </strong>
-
-		                <!-- <strong class="pull-right">Due: </strong><br> -->
-						<span class="description{{contact.id}} pull-right">
-		                	{{contact.company}}
-		                </span>
-
-		                <!-- <span class="pull-right description{{contact.id}}">{{contact.dueDate | date:'M/d/yy'}}</span> -->
-
-
-
-		              </div>
-		            <div id="{{contact.id}}" class="panel-collapse collapse">
-		            <!-- Start Task Container -->
-		              <div class="panel-body">
-		              	<div class="row task-area">
-		              		<!-- Start task details -->
-
-		              		<div class="col-md-3 ">
-
-				                	<h4>Email:</h4> 
-				                	<span class="details{{contact._id}}">{{contact.email}}</span>
-				                	
-
-
-			                </div>
-			                <!-- end task details -->
-			                <!-- Start task discussion -->
-			                <div class="col-md-5">
-
-
-			                	<div style="width: 70%;"> 
-
-			                	</div>
-
-		                
-			                </div>
-
-			            </div>
-			                <!-- End task detials -->
-			                <br>
-		              </div>
-		              <!-- End Task Container -->
-		            </div>
-		          </div>
-
-		        </div>
+						<table class="table table-condensed table-hover">
+					        <thead>
+					          <tr>
+					            <th>First Name</th>
+					            <th>Last Name</th>
+					            <th>Company</th>
+					            <th class="hide">Email</th>
+					          </tr>
+					        </thead>
+					        <tbody ng-repeat="contact in contacts | orderBy:orderProp | filter:'cold' | filter: coldquery | filter: allquery">
+					          <tr>
+					            <td>{{contact.firstname}}</td>
+					            <td>{{contact.lastname}}</td>
+					            <td>{{contact.company}}</td>
+					            <td class="hide">{{contact.company}}</td>
+					        </tbody>
+					     </table>
 
 
 
@@ -249,7 +207,7 @@
 
 
 
-					<div class="col-md-4">
+					<div class="col-md-4" ng-controller="ContactCtrl">
 						<!-- <h3>WARM</h3> -->
 						<select class="form-control taskOrder"ng-model="orderProp">
 							<option value="lasttname">Alphabetical</option>
@@ -285,65 +243,21 @@
 
 
 
-				  <div  class="panel-group" id="accordion2" ng-controller="ContactCtrl">
-		            <div ng-repeat="contact in contacts | orderBy:orderProp | filter:'warm' | filter: warmquery | filter: allquery" class="panel panel-default">
-
-		            	
-		              <div class="panel-heading accordion-toggle warm" data-toggle="collapse" data-parent="#accordion2" href="#{{contact.id}}">
-<!-- 		                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{contact._id}}" >
-		                  {{contact.name}}
-		                </a> -->
-
-						<strong>
-		                  <em class="name{{contact.id}}">{{contact.firstname}}</em>
-		                  <em class="name{{contact.id}}">{{contact.lastname}}</em>
-		                </strong>
-
-		                <!-- <strong class="pull-right">Due: </strong><br> -->
-						<span class="description{{contact.id}} pull-right">
-		                	{{contact.company}}
-		                </span>
-
-		                <!-- <span class="pull-right description{{contact.id}}">{{contact.dueDate | date:'M/d/yy'}}</span> -->
-
-
-
-		              </div>
-		            <div id="{{contact.id}}" class="panel-collapse collapse">
-		            <!-- Start Task Container -->
-		              <div class="panel-body">
-		              	<div class="row task-area">
-		              		<!-- Start task details -->
-
-		              		<div class="col-md-3 ">
-
-				                	<h4>Email:</h4> 
-				                	<span class="details{{contact._id}}">{{contact.email}}</span>
-				                	
-
-
-			                </div>
-			                <!-- end task details -->
-			                <!-- Start task discussion -->
-			                <div class="col-md-5">
-
-
-			                	<div style="width: 70%;"> 
-
-			                	</div>
-
-		                
-			                </div>
-
-			            </div>
-			                <!-- End task detials -->
-			                <br>
-		              </div>
-		              <!-- End Task Container -->
-		            </div>
-		          </div>
-
-		        </div>
+						<table class="table table-condensed table-hover">
+					        <thead>
+					          <tr>
+					            <th>First Name</th>
+					            <th>Last Name</th>
+					            <th>Company</th>
+					          </tr>
+					        </thead>
+					        <tbody ng-repeat="contact in contacts | orderBy:orderProp | filter:'warm' | filter: warmquery | filter: allquery">
+					          <tr>
+					            <td>{{contact.firstname}}</td>
+					            <td>{{contact.lastname}}</td>
+					            <td>{{contact.company}}</td>
+					        </tbody>
+					     </table>
 
 
 

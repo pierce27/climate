@@ -4,10 +4,11 @@ var pg = require('pg');
 var bcrypt = require('bcrypt');
 
 var conString = "postgres://postgres:uhbijnm@localhost/mydb";
+//postgres://ubcgvwqlihjhgn:O0R18RUmBXFF008Ov82kA0A-Qc@ec2-54-204-41-178.compute-1.amazonaws.com:5432/d97qd3ij7nr250
 
 var name = 'task from node js'
 
-var client = new pg.Client("postgres://ubcgvwqlihjhgn:O0R18RUmBXFF008Ov82kA0A-Qc@ec2-54-204-41-178.compute-1.amazonaws.com:5432/d97qd3ij7nr250");
+var client = new pg.Client(conString);
 client.connect(function(err) {
   if(err) {
     return console.error('could not connect to postgres', err);
@@ -123,8 +124,9 @@ exports.createContact = function(req, res, next){
   console.log('creating')
   console.log(req.body)
 
-  client.query("INSERT INTO contacts (firstname, lastname, company, email, temp) values($1, $2, $3, $4, $5)", [req.body.firstName, req.body.lastName, req.body.company, req.body.email, req.body.temp], function(err, result){
+  client.query("INSERT INTO contacts (firstname, lastname, company, email, temp) values($1, $2, $3, $4, $5) RETURNING *", [req.body.firstName, req.body.lastName, req.body.company, req.body.email, req.body.temp], function(err, result){
 
+    console.log('new contact');
     console.log(result);
     res.jsonp(result.rows);
 

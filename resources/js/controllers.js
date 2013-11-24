@@ -56,13 +56,15 @@ projectApp.controller('ContactCtrl', function TaskListCtrl($scope, $http) {
   //SAVE TASK
   $scope.saveContact = function() {
       console.log('saving')
+      var contacts = $scope.contacts
       var contact_to_save = {firstName: $scope.firstName, lastName: $scope.lastName, email: $scope.email,  company: $scope.company, temp: $scope.temp};
       // this.tasks.push(newTask);
       // if ($scope.id == 0){
         $http.post('/newContact', contact_to_save).success(function(data){
           console.log('Saved');
           console.log(data);
-          $scope.contacts.push(data);
+          contacts.push(data);
+          $scope.apply;
           $('#createContactArea').modal('hide')
         })
 
