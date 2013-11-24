@@ -1,7 +1,6 @@
 var express = require('express');
 var http = require('http');
-// var auth = require('./auth')
-// var MongoStore = require('connect-mongodb');
+var MongoStore = require('connect-mongodb');
 var p = require('./postgres')
 var auth = require('./auth')
 var app = express();
@@ -14,7 +13,7 @@ app.configure(function() {
   app.use(express.cookieParser('andrewsecret'));
   app.use(express.bodyParser());
   app.use(express.session({ cookie: {maxAge: 10000} })); 
-  // , store: new MongoStore({url: 'mongodb://heroku:f2c33f3c9567961c24222198920dd843@paulo.mongohq.com:10004/app19533669'})
+  , store: new MongoStore({url: 'mongodb://heroku:f2c33f3c9567961c24222198920dd843@paulo.mongohq.com:10004/app19533669'})
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
